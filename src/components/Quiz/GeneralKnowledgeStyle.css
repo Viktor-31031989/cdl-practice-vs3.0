@@ -1,0 +1,33 @@
+.general-container {
+    margin: 20px;
+}
+
+.general-text {
+    color: grey;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.error-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    position: fixed;
+    bottom: 25px;
+    left: 125px
+}
+
+.answer-text {
+    margin: 25px 20px;
+    font-size: 20px;
+}
+
+li {
+    background: lightgray;
+    padding: 5px;
+    border-radius: 5px;
+    list-style-type: none
+}

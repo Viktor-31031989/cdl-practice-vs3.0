@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {generalKnowledgeQuestions} from "./GenerallKnnowledgeBase";
 import FinalResultGeneral from "./FinalResultGeneral";
+import './GeneralKnowledgeStyle.css'
 
 function GeneralKnowledge() {
 
@@ -18,7 +19,7 @@ function GeneralKnowledge() {
             if (!isCorrect) {
                 setWrong(wrong + 1);
             }
-            if (currentQuestion + 1 < 40) {
+            if (currentQuestion + 1 < 50) {
                 setCurrentQuestion(currentQuestion + 1);
             } else {
                 setFinalResult(true)
@@ -30,32 +31,37 @@ function GeneralKnowledge() {
     }
 
     const chooseRandomQuestion = () => {
-        const randomNumber = Math.floor(Math.random()*100)+1;
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
         setRandomQuestion(randomNumber)
     }
 
     return (
-        <div>
-            <h1>General Knowledge Quiz</h1>
+        <div className='general-container'>
+            <h1 className='general-text'>General Knowledge Quiz</h1>
             {showFinalResult
                 ?
                 (<FinalResultGeneral/>)
                 :
                 (
-                    <div><h4>wrong : {wrong}</h4>
-                        <h4>question {currentQuestion} from 40</h4>
-                        <h3>{generalKnowledgeQuestions[randomQuestion].text}</h3>
-                        {generalKnowledgeQuestions[randomQuestion].options.map(el => (
-                            <li onClick={() => optionClicked(el.isCorrect)} key={el.id}>
-                                {onClick
-                                    ?
-                                    <div style={{background: el.isCorrect ? "green" : 'white'}}>{el.text}</div>
-                                    :
-                                    el.text
-                                }
-                            </li>
-                        ))}
+                    <div>
+                        <h6 className='error-text'>{wrong < 2 ? 'error:' : 'errors'} <span
+                            style={{color: 'red', fontSize: '20px'}}>{wrong}</span> out of <span
+                            style={{color: 'grey', fontSize: '20px'}}>10</span></h6>
 
+                        <h3>{generalKnowledgeQuestions[randomQuestion].text}</h3>
+                        <div >
+                            {generalKnowledgeQuestions[randomQuestion].options.map(el => (
+                                <li className='answers-box' onClick={() => optionClicked(el.isCorrect)} className='answer-text' key={el.id}>
+                                    {onClick
+                                        ?
+                                        <div style={{background: el.isCorrect ? "lightgreen" : 'pink'}}>{el.text}</div>
+                                        :
+                                        el.text
+                                    }
+                                </li>
+                            ))}
+                        </div>
+                        <h6 className='question-number'>question {currentQuestion} out of 50</h6>
                     </div>
                 )
             }
