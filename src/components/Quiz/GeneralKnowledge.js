@@ -7,6 +7,7 @@ function GeneralKnowledge() {
 
     const [showFinalResult, setFinalResult] = useState(false)
     const [wrong, setWrong] = useState(0)
+    const [score, setScore] = useState(0)
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [randomQuestion, setRandomQuestion] = useState(0)
     const [onClick, setOnClick] = useState(false)
@@ -16,10 +17,13 @@ function GeneralKnowledge() {
             if (!isCorrect && wrong + 1 === 10) {
                 setFinalResult(true)
             }
+            if (isCorrect) {
+                setScore(score + 1);
+            }
             if (!isCorrect) {
                 setWrong(wrong + 1);
             }
-            if (currentQuestion + 1 < 50) {
+            if (currentQuestion + 1 <= 50) {
                 setCurrentQuestion(currentQuestion + 1);
             } else {
                 setFinalResult(true)
@@ -35,12 +39,23 @@ function GeneralKnowledge() {
         setRandomQuestion(randomNumber)
     }
 
+    const restartQuiz = () => {
+        setCurrentQuestion(0);
+        setWrong(0);
+        setFinalResult(false)
+    }
+
     return (
         <div className='general-container'>
             <h1 className='general-text'>General Knowledge Quiz</h1>
             {showFinalResult
                 ?
-                (<FinalResultGeneral/>)
+                (<FinalResultGeneral
+                    currentQuestion={currentQuestion}
+                    wrong={wrong}
+                    restartQuiz={restartQuiz}
+                    score={score}
+                />)
                 :
                 (
                     <div>
@@ -48,7 +63,7 @@ function GeneralKnowledge() {
                             style={{color: 'red', fontSize: '20px'}}>{wrong}</span> out of <span
                             style={{color: 'grey', fontSize: '20px'}}>10</span></h6>
 
-                        <h3>{generalKnowledgeQuestions[randomQuestion].text}</h3>
+                        <h4>{generalKnowledgeQuestions[randomQuestion].text}</h4>
                         <div >
                             {generalKnowledgeQuestions[randomQuestion].options.map(el => (
                                 <li className='answers-box' onClick={() => optionClicked(el.isCorrect)} className='answer-text' key={el.id}>

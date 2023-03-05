@@ -15,21 +15,21 @@ function CarouselCardsMain() {
         {
             id: 1,
             src: GK,
-            altText: 'Slide 1',
+            altText: 'general knowledge',
             caption: 'FREE',
             link: "../Quiz/GeneralKnowledge.js",
         },
         {
             id: 2,
             src: CV,
-            altText: 'Slide 2',
+            altText: 'commercial',
             caption: 'FREE',
             link: "/"
         },
         {
             id: 3,
             src: AB,
-            altText: 'Slide 3',
+            altText: 'air brakes',
             caption: 'FREE',
             link: "/"
         }
