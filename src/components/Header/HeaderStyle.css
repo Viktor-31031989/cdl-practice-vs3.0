@@ -1,0 +1,27 @@
+.logoCDL {
+    color: #a20000;
+    font-size: 25px;
+
+}
+
+.logo {
+    font-size: 18px;
+    padding: 10px;
+
+}
+
+.headerIcon {
+    color: #a20000;
+}
+
+.signIn {
+    font-size: 20px;
+    font-weight: lighter;
+    padding: 15px 15px 10px;
+}
+
+.headerBox {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+}
