@@ -6,7 +6,7 @@ function Home(props) {
     return (
         <div>
             <Link to='/'>
-                <div className='home'>Home</div>
+                <div className='home'>Menu</div>
             </Link>
         </div>
     )

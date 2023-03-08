@@ -1,0 +1,23 @@
+.bad-result {
+    background: #f88f8f;
+    text-align: center;
+    margin-top: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px grey;
+    padding: 20px;
+}
+
+.good-result {
+    background: #96f88f;
+    text-align: center;
+    margin-top: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px grey;
+    padding: 20px;
+}
+
+.try-button {
+    position: fixed;
+    bottom: 65px;
+    left: 150px
+}

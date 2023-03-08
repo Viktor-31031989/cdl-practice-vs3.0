@@ -1,7 +1,8 @@
 .main-cards {
     box-shadow: 1px 2px 5px #656565;
     margin: 20px;
-    width: 250px;
+    width: 150px;
+    border-radius: 5px;
 }
 
 .carousel-style {
@@ -18,18 +19,11 @@
 
 .main-hero-text {
     margin: 30px 0 10px;
-    color: #a20000;
+    color: #888686;
     font-weight: normal;
     font-size: smaller;
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #ffe9e9;
-}
-
-.carousel-indicators {
-    bottom: -20px;
-    background: #eeb6b6;
-    width: 90px;
-    border-radius: 10px;
+    background-color: #fddbdb;
 }

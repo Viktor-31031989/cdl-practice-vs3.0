@@ -11,6 +11,7 @@ function GeneralKnowledge() {
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [randomQuestion, setRandomQuestion] = useState(0)
     const [onClick, setOnClick] = useState(false)
+
     const optionClicked = (isCorrect) => {
         setOnClick(true)
         setTimeout(() => {
@@ -64,9 +65,10 @@ function GeneralKnowledge() {
                             style={{color: 'grey', fontSize: '20px'}}>10</span></h6>
 
                         <h4>{generalKnowledgeQuestions[randomQuestion].text}</h4>
-                        <div >
+                        <div>
                             {generalKnowledgeQuestions[randomQuestion].options.map(el => (
-                                <li className='answers-box' onClick={() => optionClicked(el.isCorrect)} className='answer-text' key={el.id}>
+                                <li className='answers-box' onClick={() => optionClicked(el.isCorrect)}
+                                    className='answer-text' key={el.id}>
                                     {onClick
                                         ?
                                         <div style={{background: el.isCorrect ? "lightgreen" : 'pink'}}>{el.text}</div>
