@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
-import {generalKnowledgeQuestions} from "./GenerallKnnowledgeBase";
-import FinalResultGeneral from "./FinalResultGeneral";
-import './GeneralKnowledgeStyle.css'
+import {generalKnowledgeQuestions} from "./generalQuestions/generallKnnowledgeBase";
+import FinalResultGeneral from "./finalResult/FinalResultGeneral";
+import './QuizLogicStyle.css'
+import {useSelector} from "react-redux";
 
-function GeneralKnowledge() {
+function QuizLogic() {
+
+    const mainCards = useSelector(state => state.main)
+    const extraCards = useSelector(state => state.extra)
 
     const [showFinalResult, setFinalResult] = useState(false)
     const [wrong, setWrong] = useState(0)
@@ -45,7 +49,7 @@ function GeneralKnowledge() {
         setWrong(0);
         setFinalResult(false)
     }
-
+    console.log(mainCards)
     return (
         <div className='general-container'>
             <h1 className='general-text'>General Knowledge Quiz</h1>
@@ -87,4 +91,4 @@ function GeneralKnowledge() {
         ;
 }
 
-export default GeneralKnowledge;
+export default QuizLogic;

@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import './AppStyle.css'
 import CarouselCardsMain from "./components/Cards/CarouselCardsMain";
 import {Route, Routes} from "react-router";
-import GeneralKnowledge from "./components/Quiz/GeneralKnowledge";
+import QuizLogic from "./components/Quiz/QuizLogic";
 
 function App() {
     return (
@@ -11,7 +11,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path='/' element={<CarouselCardsMain />}/>
-                <Route path='/Quiz/GeneralKnowledge.js' element={<GeneralKnowledge />}/>
+                <Route path='/Quiz/QuizLogic.js' element={<QuizLogic />}/>
             </Routes>
         </div>
     );

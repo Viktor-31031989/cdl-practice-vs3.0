@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from "@mui/material";
-import './GeneralKnowledgeStyle.css'
+import './finalResultStyle.css';
 
 function FinalResultGeneral({restartQuiz, wrong, currentQuestion, score}) {
     return (
