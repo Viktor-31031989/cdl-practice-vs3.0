@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {generalKnowledgeQuestions} from "./generalQuestions/generallKnnowledgeBase";
 import FinalResultGeneral from "./finalResult/FinalResultGeneral";
 import './QuizLogicStyle.css'
 import {useSelector} from "react-redux";
 
-function QuizLogic() {
+function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
 
     const mainCards = useSelector(state => state.main)
     const extraCards = useSelector(state => state.extra)
@@ -19,7 +18,7 @@ function QuizLogic() {
     const optionClicked = (isCorrect) => {
         setOnClick(true)
         setTimeout(() => {
-            if (!isCorrect && wrong + 1 === 10) {
+            if (!isCorrect && wrong + 1 === mistakes) {
                 setFinalResult(true)
             }
             if (isCorrect) {
@@ -28,7 +27,7 @@ function QuizLogic() {
             if (!isCorrect) {
                 setWrong(wrong + 1);
             }
-            if (currentQuestion + 1 <= 50) {
+            if (currentQuestion + 1 <= numberOfQuestions) {
                 setCurrentQuestion(currentQuestion + 1);
             } else {
                 setFinalResult(true)
@@ -48,11 +47,12 @@ function QuizLogic() {
         setCurrentQuestion(0);
         setWrong(0);
         setFinalResult(false)
+        setScore(0)
     }
     console.log(mainCards)
     return (
         <div className='general-container'>
-            <h1 className='general-text'>General Knowledge Quiz</h1>
+            <h1 className='general-text'>{title}</h1>
             {showFinalResult
                 ?
                 (<FinalResultGeneral
@@ -60,17 +60,19 @@ function QuizLogic() {
                     wrong={wrong}
                     restartQuiz={restartQuiz}
                     score={score}
+                    questions={questions}
+                    numberOfQuestions={numberOfQuestions}
                 />)
                 :
                 (
                     <div>
                         <h6 className='error-text'>{wrong < 2 ? 'error:' : 'errors'} <span
                             style={{color: 'red', fontSize: '20px'}}>{wrong}</span> out of <span
-                            style={{color: 'grey', fontSize: '20px'}}>10</span></h6>
+                            style={{color: 'grey', fontSize: '20px'}}>{mistakes}</span></h6>
 
-                        <h4>{generalKnowledgeQuestions[randomQuestion].text}</h4>
+                        <h4>{questions[randomQuestion].text}</h4>
                         <div>
-                            {generalKnowledgeQuestions[randomQuestion].options.map(el => (
+                            {questions[randomQuestion].options.map(el => (
                                 <li className='answers-box' onClick={() => optionClicked(el.isCorrect)}
                                     className='answer-text' key={el.id}>
                                     {onClick
@@ -82,7 +84,7 @@ function QuizLogic() {
                                 </li>
                             ))}
                         </div>
-                        <h6 className='question-number'>question {currentQuestion} out of 50</h6>
+                        <h6 className='question-number'>question {currentQuestion} out of {numberOfQuestions}</h6>
                     </div>
                 )
             }

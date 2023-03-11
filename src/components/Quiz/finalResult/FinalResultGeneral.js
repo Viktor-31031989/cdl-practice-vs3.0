@@ -2,11 +2,11 @@ import React from 'react';
 import {Button} from "@mui/material";
 import './finalResultStyle.css';
 
-function FinalResultGeneral({restartQuiz, wrong, currentQuestion, score}) {
+function FinalResultGeneral({restartQuiz, wrong, currentQuestion, score, questions, numberOfQuestions}) {
     return (
         <div>
             {
-                currentQuestion === 50
+                currentQuestion === numberOfQuestions
                     ?
                     (
                         <div className='good-result'>

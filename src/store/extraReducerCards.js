@@ -25,7 +25,7 @@ const moreCards = [
         clicked: false,
     }
 ];
-export const extraReducer = (state = moreCards, action) => {
+export const extraReducerCards = (state = moreCards, action) => {
     switch (action.type) {
         case 'SELECTED_CARD':
             return  [...state.map(el => el.id === action.payload ? {...el, clicked: !el.clicked} : {...el})]
