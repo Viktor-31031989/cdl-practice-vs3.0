@@ -10,7 +10,11 @@ function CarouselCardsMain() {
     const extraCards = useSelector(state => state.extra)
     const dispatch = useDispatch()
     const clickHandler = (id) => {
-        dispatch({type: "SELECTED_CARD", payload: id})
+        if(id === 1 || id === 2 || id === 3){
+            dispatch({type: "SELECTED_CARD", payload: id})
+        } else {
+            dispatch({type: "SELECTED_CARD_ENDORSEMENT", payload: id})
+        }
         console.log('clicked')
     }
 
@@ -41,11 +45,14 @@ function CarouselCardsMain() {
             <Carousel className='carousel-style'>
                 {extraCards.map(item => (
                     <Carousel.Item key={item.id}>
-                        <img
-                            className="main-cards"
-                            src={item.src}
-                            alt={item.altText}
-                        />
+                        <Link to={item.link}>
+                            <img
+                                className="main-cards"
+                                src={item.src}
+                                alt={item.altText}
+                                onClick={() => clickHandler(item.id)}
+                            />
+                        </Link>
                         <Carousel.Caption className='caption-text'>
                             <h3>{item.caption}</h3>
                         </Carousel.Caption>

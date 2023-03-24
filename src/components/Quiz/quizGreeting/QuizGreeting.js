@@ -4,7 +4,8 @@ import {Button} from "@mui/material";
 import './greetingStyle.css';
 import QuizLogic from "../QuizLogic";
 
-function QuizGreeting(props) {
+function QuizGreeting() {
+
     const [card, setCard] = useState([])
     const [openQuiz, setOpenQuiz] = useState(false)
     const mainCards = useSelector(state => state.main)
@@ -14,16 +15,19 @@ function QuizGreeting(props) {
         if (mainCards) {
             checkQuizCard()
         }
-    }, [mainCards]);
+    }, [mainCards, extraCards]);
 
     const checkQuizCard = () => {
         const chooseCard = mainCards.filter(card => card.clicked === true)
-        setCard(chooseCard)
+        const chooseCardEndorsement = extraCards.filter(card => card.clicked === true)
+        if(chooseCardEndorsement.length > 0) return setCard(chooseCardEndorsement)
+        if(chooseCard.length > 0) return setCard(chooseCard)
     }
 
     function startQuiz() {
         setOpenQuiz(!openQuiz)
     }
+
 
     console.log(card)
     return (
@@ -47,9 +51,10 @@ function QuizGreeting(props) {
                             In <span className='questions'>{card && card[0] && card[0].altText}</span> quiz you will
                             get <span className='number-green'>{card && card[0] && card[0].questions}</span> questions.
                             <br/>
-                            To pass the test you can make no more than <span className='number-red'> {card && card[0] && card[0].mistakes}</span> mistakes.
-                           <br/>
-                           <br/>
+                            To pass the test you can make no more than <span
+                            className='number-red'> {card && card[0] && card[0].mistakes}</span> mistakes.
+                            <br/>
+                            <br/>
                             Good Luck!
                         </h1>
 
