@@ -3,7 +3,7 @@ import './HeaderStyle.css'
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
-function Home(props) {
+function Home() {
 
     const dispatch = useDispatch()
     const resetCards = () => {

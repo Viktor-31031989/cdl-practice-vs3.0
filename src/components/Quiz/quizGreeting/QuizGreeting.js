@@ -12,10 +12,8 @@ function QuizGreeting() {
     const extraCards = useSelector(state => state.extra)
 
     useEffect(() => {
-        if (mainCards) {
-            checkQuizCard()
-        }
-    }, [mainCards, extraCards]);
+        if(card.length === 0) return checkQuizCard()
+    }, );
 
     const checkQuizCard = () => {
         const chooseCard = mainCards.filter(card => card.clicked === true)

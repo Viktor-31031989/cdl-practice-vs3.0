@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import FinalResultGeneral from "./finalResult/FinalResultGeneral";
 import './QuizLogicStyle.css'
-import {useSelector} from "react-redux";
 
 function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
 
-    const mainCards = useSelector(state => state.main)
-    const extraCards = useSelector(state => state.extra)
 
     const [showFinalResult, setFinalResult] = useState(false)
     const [wrong, setWrong] = useState(0)
@@ -49,7 +46,6 @@ function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
         setFinalResult(false)
         setScore(0)
     }
-    console.log(mainCards)
     return (
         <div className='general-container'>
             <h1 className='general-text'>{title}</h1>
@@ -73,7 +69,7 @@ function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
                         <h4>{questions[randomQuestion].text}</h4>
                         <div>
                             {questions[randomQuestion].options.map(el => (
-                                <li className='answers-box' onClick={() => optionClicked(el.isCorrect)}
+                                <li onClick={() => optionClicked(el.isCorrect)}
                                     className='answer-text' key={el.id}>
                                     {onClick
                                         ?
