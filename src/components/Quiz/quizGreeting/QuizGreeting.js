@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {useSelector} from "react-redux";
-import {Button} from "@mui/material";
+import React, { useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
+import { Button } from "@mui/material";
 import './greetingStyle.css';
 import QuizLogic from "../QuizLogic";
 
