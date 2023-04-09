@@ -11,7 +11,7 @@ function Header() {
             </h1>
             <div className='header-home-signIn'>
                 <Home />
-                <SignIn/>
+                <SignIn />
             </div>
         </div>
     );
