@@ -1,8 +1,8 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './CardsStyle.css'
-import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 function CarouselCardsMain() {
 
