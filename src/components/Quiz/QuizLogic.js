@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import FinalResultGeneral from "./finalResult/FinalResultGeneral";
 import './QuizLogicStyle.css'
+import ProgressBar from "./progressBar/ProgressBar";
+
 
 function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
-
 
     const [showFinalResult, setFinalResult] = useState(false)
     const [wrong, setWrong] = useState(0)
@@ -46,9 +47,18 @@ function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
         setFinalResult(false)
         setScore(0)
     }
+
     return (
         <div className='general-container'>
             <h1 className='general-text'>{title}</h1>
+
+            <div style={{display: 'flex', justifyContent: 'center', marginBottom: "10px"}}>
+                <ProgressBar
+                    numberOfQuestions={numberOfQuestions}
+                    currentQuestion={currentQuestion}
+                />
+            </div>
+
             {showFinalResult
                 ?
                 (<FinalResultGeneral
