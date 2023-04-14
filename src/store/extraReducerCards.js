@@ -1,9 +1,9 @@
 import DE from "../components/images/double.png";
 import TE from "../components/images/tanker.png";
 import HE from "../components/images/hazerdous.png";
-import {doubleTripleQuestions} from "../components/Quiz/doubleAndTripleQuestions/doubleTripleQuestions";
-import {hazardousMaterialsQuestions} from "../components/Quiz/hazardousMaterialsQuestions/hazardousMateriialsQuestions";
-import {tankerEndorsementQuestions} from "../components/Quiz/tankerQuestions/tankerEndorsementQuestions";
+import { doubleTripleQuestions } from "../components/Quiz/doubleAndTripleQuestions/doubleTripleQuestions";
+import { hazardousMaterialsQuestions } from "../components/Quiz/hazardousMaterialsQuestions/hazardousMateriialsQuestions";
+import { tankerEndorsementQuestions } from "../components/Quiz/tankerQuestions/tankerEndorsementQuestions";
 
 const moreCards = [
     {
