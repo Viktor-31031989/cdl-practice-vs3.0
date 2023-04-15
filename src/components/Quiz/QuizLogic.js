@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import FinalResultGeneral from "./finalResult/FinalResultGeneral";
 import './QuizLogicStyle.css'
 import ProgressBar from "./progressBar/ProgressBar";
 
 
-function QuizLogic({mistakes, title, questions, numberOfQuestions}) {
+function QuizLogic({ mistakes, title, questions, numberOfQuestions }) {
 
     const [showFinalResult, setFinalResult] = useState(false)
     const [wrong, setWrong] = useState(0)
