@@ -1,6 +1,6 @@
-import {combineReducers, createStore} from "redux";
-import {mainReducerCards} from "./mainReducerCards";
-import {extraReducerCards} from "./extraReducerCards";
+import { combineReducers, createStore } from "redux";
+import { mainReducerCards } from "./mainReducerCards";
+import { extraReducerCards } from "./extraReducerCards";
 
 const rootReducer = combineReducers({
     extra: extraReducerCards,
