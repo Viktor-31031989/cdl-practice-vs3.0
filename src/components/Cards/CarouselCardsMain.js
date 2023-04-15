@@ -11,9 +11,9 @@ function CarouselCardsMain() {
     const dispatch = useDispatch()
     const clickHandler = (id) => {
         if(id === 1 || id === 2 || id === 3){
-            dispatch({type: "SELECTED_CARD", payload: id})
+            dispatch({ type: "SELECTED_CARD", payload: id })
         } else {
-            dispatch({type: "SELECTED_CARD_ENDORSEMENT", payload: id})
+            dispatch({ type: "SELECTED_CARD_ENDORSEMENT", payload: id })
         }
         console.log('clicked')
     }
